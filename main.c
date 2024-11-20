@@ -42,7 +42,11 @@ void ajouter_personne() {
     } else {
         printf("Le tableau est plein.\n");
     }
+    printf("Personne modifiez avec succes \n");
 }
+
+
+
 
 void afficher_personne(){
     if(nombre_personnes == 0);
@@ -58,41 +62,49 @@ void afficher_personne(){
         printf("Adresse: %s, %s, %s\n", liste_personnes[i].adresse.rue,
                                          liste_personnes[i].adresse.ville,
                                          liste_personnes[i].adresse.code_postal);
+
+
+    }    }
+
+
+
+
+ void modifier_personne(){
+    int max ;
+    printf("Enterz le numero de la personne a modifier (1-%d) : ",nombre_personnes);
+    scanf("%d",&max);
+
+    if (max >= 1 && max <= nombre_personnes)
+    {
+        max--;
+        printf("Entrez le nouveau nom : ");
+        scanf(" %[^\n]",liste_personnes[max].nom);
+        printf("Entrez le nouveau age : ");
+        scanf("%d",&liste_personnes[max].age);
+        printf("Entrez le nouveau rue : ");
+        scanf(" %[^\n]",liste_personnes[max].adresse.rue);
+        printf("Entrez le nouveau ville : ");
+        scanf(" %[^\n]",liste_personnes[max].adresse.ville);
+        printf("Entrez le nouveau Code Postal : ");
+        scanf(" %[^\n]",liste_personnes[max].adresse.code_postal);
+
+   printf("Personne modifee avec succes \n");
+
+    } else {
+        printf("Numero invalide .\n");
+
+
+
+
+ void supprimer_personne (){
+    int max;
+    scanf("entrez la numero de personne a supprimer (1-%d) : " , nomber_personne);
+    printf("%d" ,&max);
+ }
     }
-    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
