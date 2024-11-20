@@ -25,7 +25,7 @@ void ajouter_personne() {
         printf("Entrez le nom de la personne: ");
         scanf(" %[^\n]", liste_personnes[nombre_personnes].nom);
 
-        printf("Entrez l'âge de la personne: ");
+        printf("Entrez l'age de la personne: ");
         scanf("%d", &liste_personnes[nombre_personnes].age);
 
         printf("Entrez la rue: ");
@@ -38,19 +38,17 @@ void ajouter_personne() {
         scanf(" %[^\n]", liste_personnes[nombre_personnes].adresse.code_postal);
 
         nombre_personnes++; // Incrémenter le compteur
-        printf("Personne ajoutée avec succès !\n");
+        printf("Personne ajouter avec succes !\n");
     } else {
         printf("Le tableau est plein.\n");
     }
-    printf("Personne modifiez avec succes \n");
 }
 
 
 
 
 void afficher_personne(){
-    if(nombre_personnes == 0);
-    {
+    if(nombre_personnes == 0){
         printf("Aucune personnes a affiche .\n");
         return;
     }
@@ -92,25 +90,65 @@ void afficher_personne(){
 
     } else {
         printf("Numero invalide .\n");
+    }
 
-
-
+ }
 
  void supprimer_personne (){
     int max;
-    scanf("entrez la numero de personne a supprimer (1-%d) : " , nomber_personne);
-    printf("%d" ,&max);
- }
-    }
+    printf("entrez la numero de personne a supprimer (1-%d) : " ,nombre_personnes);
+    scanf("%d" ,&max);
     
 
-}
+     if (max >= 1 && max <= nombre_personnes){
+        max--;
 
+     for (int i = max ; i < nombre_personnes - 1; i++){
+          liste_personnes[i] = liste_personnes[i + 1];
+     }
+      nombre_personnes--;
+     printf("Personne supprimee avec succes");
+    
+    }else{
+        printf("Numero invalide . \n");
+    }
 
-
-
+ }
+ 
 // Fonction principale
 int main() {
-    ajouter_personne();
+    int choix;
+    do{
+        printf("\nMenu:\n");
+        printf("1. ajouter une personne\n");
+        printf("2. afficher une personne\n");
+        printf("3. modifier une personne\n");
+        printf("4. Supprimer une personne\n");
+        printf("5. Quitter\n");
+        printf("Entrez votre choix: ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                ajouter_personne();
+                break;
+            case 2:
+                afficher_personne();
+                break;
+            case 3:
+                modifier_personne();
+                break;
+            case 4:
+                supprimer_personne();
+                break;
+            case 5:
+                printf("Au revoir !\n");
+                break;
+            default:
+                printf("Choix invalide.\n");
+        }
+    } while (choix != 5);
+
     return 0;
 }
+    
